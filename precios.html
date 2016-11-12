@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Invie - ¡Las mejores guitarras!</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="./css/styles.css">
+	</head>
+	<body class="precios">
+		<header id="header" class="header background"> <!-- header -->
+			<div class="contenedor">
+				<figure class="logotipo"> <!-- logotipo -->
+					<img src="images/invie.png" alt="Logo">
+				</figure>
+				<span class="burger-button icon-menu" id="burger-button"></span>
+				<nav class="menu" id="menu"> <!-- menu -->
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#guitarras">Guitarras</a></li>
+						<li><a href="precios.html">Precios</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section class="tabla">
+			<div class="contenedor">
+				<table border>
+					<thead>
+						<tr>
+							<th>Modelo</th>
+							<th>Precio</th>
+							<th>Descripcion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Invie Acustica</td>
+							<td>$100000</td>
+							<td>Una guitarra muy pro en 1080p HD</td>
+						</tr>
+
+						<tr>
+							<td>Invie Classic</td>
+							<td>$100000</td>
+							<td>Una guitarra muy pro en 4K</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="contenedor">
+				<div class="contacto">
+					<img src="images/invie-white.png" alt="Logo Invie">
+					<a href="tel:"><strong>Telefono</strong> <span>+58 414-543-9534</span></a>
+					<a href="mailto:contacto@invie.com"><strong>E-mail</strong> <span>contacto@invie.com</span></a>
+				</div>
+				<form class="formulario">
+					<div class="col1">
+						<label for="nombre">Nombre</label>
+						<input type="text" id="nombre" required name="nombre" />
+						<label for="email">E-mail</label>
+						<input type="email" id="email" required name="email" />
+
+						<div class="sexo">
+							<label for="mujer">
+								<input type="radio" id="mujer" name="sexo" value="mujer"> Mujer
+							</label>
+							<label for="hombre">
+								<input type="radio" id="hombre" name="sexo" value="hombre"> Hombre
+							</label>
+						</div>
+
+						<div class="intereses">
+							<label for="cotizacion">
+								<input type="checkbox" id="cotizacion" name="intereses" value="cotizacion"> Cotizacion
+							</label>
+							<label for="reclamos">
+								<input type="checkbox" id="reclamos" name="intereses" value="reclamos"> Reclamos
+							</label>
+							<label for="comentarios">
+								<input type="checkbox" id="comentarios" name="intereses" value="comentarios"> Comentarios
+							</label>
+							<label for="otros">
+								<input type="checkbox" id="otros" name="intereses" value="otros"> Otros
+							</label>
+						</div>
+					</div>
+
+					<div class="col2">
+						<label for="asunto">Asunto</label>
+						<textarea name="asunto" id="asunto" cols="30" rows="7"></textarea>
+						<input type="submit"  value="Enviar" class="boton" />
+					</div>
+				</form>
+			</div>
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
+		<script>
+			var $burgerButton = document.getElementById("burger-button");
+			var $menu = document.getElementById("menu");
+
+			$burgerButton.addEventListener("touchstart", toggleMenu);
+
+			function toggleMenu(){
+				$menu.classList.toggle("active");
+				$burgerButton.classList.toggle("icon-close");
+			}
+			function mostrar(){
+				$menu.classList.add("active");
+				$burgerButton.classList.add("icon-close");
+			}
+
+			function ocultar(){
+				$menu.classList.remove("active");
+				$burgerButton.classList.remove("icon-close");
+			}
+
+			//Gestos touch con HammerJS
+			var $body = document.body;
+			var gestos = new Hammer($body);
+
+			//Ocultamos el menu
+			gestos.on('swipeleft', ocultar);
+			//Mostrarmos el menu
+			gestos.on('swiperight', mostrar);
+		</script>
+	</body>
+</html>
